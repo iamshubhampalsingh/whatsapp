@@ -1,0 +1,2260 @@
+##############################################Whatsapp test cases##############################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+receiver_device(text="Play Store").click()
+time.sleep(2)
+receiver_device(text="Search Apps & Games").set_text("whatsapp")
+time.sleep(2)
+receiver_device.xpath('//androidx.compose.ui.platform.ComposeView/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.view.View[2]').click()
+time.sleep(2)
+receiver_device(description="Install").click()
+
+
+# Define the package name and activity name of WhatsApp
+package_name = "com.whatsapp"
+activity_name = "com.whatsapp.HomeActivity"
+
+# ADB command to start WhatsApp
+whatsapp_adb_command = ["adb", "-s", receiver_device_serial, "shell", "am", "start", "-n", f"{package_name}/{activity_name}"]
+
+# Execute the ADB command to start WhatsApp
+subprocess.run(whatsapp_adb_command)
+
+#########################################Testcase3#############################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# ADB command to start the Settings app and scroll to the "Privacy" section
+!adb shell am start -n com.android.settings/.Settings
+
+
+# Execute the ADB command from Python
+subprocess.run(adb_command, shell=True)
+
+# Scroll directly to the "Apps" section in the Settings app
+receiver_device(scrollable=True).scroll.to(text="Apps")
+time.sleep(2)
+receiver_device(resourceId="android:id/title", text="Apps").click()
+time.sleep(2)
+receiver_device(resourceId="android:id/title", text="WhatsApp").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.settings:id/button2").click()
+time.sleep(2)
+receiver_device.press("home")
+# Define the package name and activity name of WhatsApp
+package_name = "com.whatsapp"
+activity_name = "com.whatsapp.HomeActivity"
+
+# ADB command to start WhatsApp
+whatsapp_adb_command = ["adb", "-s", receiver_device_serial, "shell", "am", "start", "-n", f"{package_name}/{activity_name}"]
+
+# Execute the ADB command to start WhatsApp
+subprocess.run(whatsapp_adb_command)
+
+####################################################Testcase4################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+receiver_device.swipe(900, 500, 100, 500, duration=0.5)
+time.sleep(2)
+receiver_device(text="WhatsApp").long_click()
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.android.launcher3:id/popup_container"]/android.widget.FrameLayout[4]').click()
+time.sleep(2)
+print("uninstall done for python")
+
+############################################Testcase5#########################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Define the initial swipe coordinates
+start_x = 500
+start_y = 500
+end_y = 1500
+swipe_duration = 0.5
+
+# Perform multiple swipes to scroll the screen downwards
+num_swipes = 5  # Adjust the number of swipes as needed
+for _ in range(num_swipes):
+    receiver_device.swipe(start_x, start_y, start_x, end_y, duration=swipe_duration)
+    time.sleep(1)  # Adjust the delay between swipes if necessary
+receiver_device.click(0.383, 0.142)
+time.sleep(2)
+receiver_device(text="Mobile data").click()
+time.sleep(2)
+receiver_device.press("home")
+time.sleep(2)
+receiver_device(text="Play Store").click()
+time.sleep(2)
+receiver_device(description="Search Google Play").click()
+time.sleep(2)
+receiver_device.xpath('//android.widget.EditText').set_text("whatsapp")
+time.sleep(2)
+receiver_device.xpath('//androidx.compose.ui.platform.ComposeView/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.view.View[2]').click()
+time.sleep(2)
+receiver_device(description="Install").click()
+time.sleep(2)
+receiver_device.press("home")
+time.sleep(30)
+# Define the package name and activity name of WhatsApp
+package_name = "com.whatsapp"
+activity_name = "com.whatsapp.HomeActivity"
+
+# ADB command to start WhatsApp
+whatsapp_adb_command = ["adb", "-s", receiver_device_serial, "shell", "am", "start", "-n", f"{package_name}/{activity_name}"]
+
+# Execute the ADB command to start WhatsApp
+subprocess.run(whatsapp_adb_command)
+
+###################################################Testcase8#################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Perform the swipe left gesture
+receiver_device.swipe(start_x, start_y, end_x, end_y, duration=0.5)  # Adjust duration (in seconds) as needed
+
+# Wait for a brief moment to see the result (optional)
+time.sleep(1)
+
+receiver_device(text="WhatsApp").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/language_name", text="English").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/next_button").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/eula_accept").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.permissioncontroller:id/permission_allow_button").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/registration_phone").set_text("8527746897")
+time.sleep(2)
+receiver_device(resourceId="android:id/button1").click()
+time.sleep(60)
+receiver_device(resourceId="com.whatsapp:id/submit").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.permissioncontroller:id/permission_allow_button").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.permissioncontroller:id/permission_allow_button").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.permissioncontroller:id/permission_allow_button").click()
+print("whatsapp opened")
+
+###########################################Testcase9#########################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Perform the swipe left gesture
+receiver_device.swipe(start_x, start_y, end_x, end_y, duration=0.5)  # Adjust duration (in seconds) as needed
+
+# Wait for a brief moment to see the result (optional)
+time.sleep(1)
+
+receiver_device(text="WhatsApp").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/fab").click()
+time.sleep(2)
+if receiver_device(resourceId="com.whatsapp:id/contactpicker_row_photo", description="+91 85277 46897").exists():
+    print("Contacts can be checked")
+receiver_device.press("home")
+
+###################################################Testcase11################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Perform the swipe left gesture
+receiver_device.swipe(start_x, start_y, end_x, end_y, duration=0.5)  # Adjust duration (in seconds) as needed
+
+# Wait for a brief moment to see the result (optional)
+time.sleep(1)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/tab", text="Status").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/menuitem_overflow").click()
+time.sleep(2)
+if receiver_device(text="Settings").exists():
+    print("Device currently in settings option")
+else:
+    print("Device not in settings option")
+
+###########################################Testcase12#########################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Perform the swipe left gesture
+receiver_device.swipe(start_x, start_y, end_x, end_y, duration=0.5)  # Adjust duration (in seconds) as needed
+
+# Wait for a brief moment to see the result (optional)
+time.sleep(1)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/tab", text="Status").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/menuitem_overflow").click()
+time.sleep(2)
+if receiver_device(text="Settings").click()
+time.sleep(2)
+print("The device is currently in settings mode")
+
+##############################################Testcase13#######################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Perform the swipe left gesture
+receiver_device.swipe(start_x, start_y, end_x, end_y, duration=0.5)  # Adjust duration (in seconds) as needed
+
+# Wait for a brief moment to see the result (optional)
+time.sleep(1)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/tab", text="Status").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/contact_name", text="My status").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.permissioncontroller:id/permission_allow_foreground_only_button").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/recording_progress").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/send").click()
+print("The status is set")
+
+###################################################Testcase14#################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Perform the swipe left gesture
+receiver_device.swipe(start_x, start_y, end_x, end_y, duration=0.5)  # Adjust duration (in seconds) as needed
+
+# Wait for a brief moment to see the result (optional)
+time.sleep(1)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/entry").set_text("hello")
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversation_entry_action_button").click()
+time.sleep(2)
+print("Message sent")
+
+###############################################Testcase17#####################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Perform the swipe left gesture
+receiver_device.swipe(start_x, start_y, end_x, end_y, duration=0.5)  # Adjust duration (in seconds) as needed
+
+# Wait for a brief moment to see the result (optional)
+time.sleep(1)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/camera_btn").click()
+time.sleep(2)
+receiver_device(text="Video").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/recording_progress").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.permissioncontroller:id/permission_allow_foreground_only_button").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/recording_progress").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/send").click()
+time.sleep(2)
+print("The video recording is sent")
+
+#####################################################Testcase57###############################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# ADB command to turn off the receiver device screen
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Execute the ADB command to turn off the receiver device screen
+subprocess.run(receiver_turn_off_command)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+sender_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name", text="AAAAA").click()
+time.sleep(2)
+sender_device(description="Video call").click()
+time.sleep(30)
+receiver_device(resourceId="android:id/action0", text="ANSWER").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/back").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/entry").set_text("hello this is shu bham pal singh, automation engineer at LavaR&D")
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversation_entry_action_button").click()
+print("The video call ongoing with messages sent")
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/input_attach_button").click()
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.whatsapp:id/pickfiletype_audio_holder"]/android.widget.ImageButton[1]').click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/audio_file_title", text="file_example_MP3_700KB").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/fab").click()
+time.sleep(2)
+receiver_device(resourceId="android:id/button1").click()
+print("The audio file is sent")
+receiver_device(resourceId="com.whatsapp:id/camera_btn").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/recording_progress").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/send").click()
+print("The camera clicks the photo")
+
+#################################################Testcase43#################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Perform the swipe left gesture
+receiver_device.swipe(start_x, start_y, end_x, end_y, duration=0.5)  # Adjust duration (in seconds) as needed
+
+# Wait for a brief moment to see the result (optional)
+time.sleep(1)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# Start WhatsApp using the package name and activity name
+resource_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+resource_device(resourceId="com.whatsapp:id/input_attach_button").click()
+time.sleep(2)
+resource_device.xpath('//*[@resource-id="com.whatsapp:id/pickfiletype_document_holder"]/android.widget.ImageButton[1]').click()
+time.sleep(2)
+resource_device.xpath('//*[@resource-id="android:id/list"]/android.widget.FrameLayout[2]').click()
+time.sleep(2)
+resource_device(resourceId="com.whatsapp:id/send").click()
+print("Message sent with pdf as attachment")
+
+##############################################Testcase44#####################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# ADB command to turn off the receiver device screen
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Execute the ADB command to turn off the receiver device screen
+subprocess.run(receiver_turn_off_command)
+
+# Start WhatsApp using the package name and activity name
+sender_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+sender_device.xpath('//*[@resource-id="android:id/list"]/android.widget.RelativeLayout[2]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]/android.widget.FrameLayout[1]').click()
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/entry").set_text("hello")
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversation_entry_action_button").click()
+print("The device recieved message with power off")
+
+###################################################Testcase45################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/fab").click()
+time.sleep(2)
+# Swipe down to refresh the conversations list in WhatsApp
+receiver_device.swipe_ext("down", scale=0.5)
+print("The contacts are refreshed")
+
+#############################################Testcase46#######################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Perform the swipe left gesture
+receiver_device.swipe(start_x, start_y, end_x, end_y, duration=0.5)  # Adjust duration (in seconds) as needed
+
+# Wait for a brief moment to see the result (optional)
+time.sleep(1)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/entry").set_text("hello this is shubham pal singh")
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversation_entry_action_button").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversation_entry_action_button").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/camera_btn").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/recording_progress").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/send").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/back").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/center_group").click()
+print("Thw message and photo is sent by whatsapp")
+
+##########################################################Testcase47#########################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Perform the swipe left gesture
+receiver_device.swipe(start_x, start_y, end_x, end_y, duration=0.5)  # Adjust duration (in seconds) as needed
+
+# Wait for a brief moment to see the result (optional)
+time.sleep(1)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/emoji_picker_btn").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/gif_tab").click()
+time.sleep(5)
+receiver_device.xpath('//*[@resource-id="com.whatsapp:id/gif_trending_grid"]/android.widget.FrameLayout[1]').click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/send").click()
+print("GIF sent on whatsapp")
+
+####################################################Testcase48##############################################################
+
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Perform the swipe left gesture
+receiver_device.swipe(start_x, start_y, end_x, end_y, duration=0.5)  # Adjust duration (in seconds) as needed
+
+# Wait for a brief moment to see the result (optional)
+time.sleep(1)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/input_attach_button").click()
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.whatsapp:id/pickfiletype_audio_holder"]/android.widget.ImageButton[1]').click()
+time.sleep(2)
+receiver_device.xpath('//*[@content-desc="Deselected, file_example_MP3_700KB, 42 seconds, 734 kB"]/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]').click()
+time.sleep(2)
+print("The audio file is sent")
+
+#####################################################Testcase49#################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Perform the swipe left gesture
+receiver_device.swipe(start_x, start_y, end_x, end_y, duration=0.5)  # Adjust duration (in seconds) as needed
+
+# Wait for a brief moment to see the result (optional)
+time.sleep(1)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+receiver_device(description="Video call").click()
+time.sleep(2)
+receiver_device(resourceId="android:id/button1").click()
+time.sleep(30)
+receiver_device(resourceId="com.whatsapp:id/footer_end_call_btn").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/back").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/center_group").click()
+print("The video call is done")
+
+#################################################Testcase50####################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# ADB command to turn off the receiver device screen
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Execute the ADB command to turn off the receiver device screen
+subprocess.run(receiver_turn_off_command)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+sender_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name", text="AAAAA").click()
+time.sleep(2)
+sender_device(description="Video call").click()
+time.sleep(30)
+print("The video call done on whatsapp")
+
+#############################################Test case52######################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# ADB command to turn off the receiver device screen
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Execute the ADB command to turn off the receiver device screen
+subprocess.run(receiver_turn_off_command)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+sender_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name", text="AAAAA").click()
+time.sleep(2)
+sender_device(description="Video call").click()
+time.sleep(30)
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+receiver_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/entry").set_text("hello this is shubham pal singh, automation delivery head lava international noida")
+time.sleep(2)
+print("the video call with messages done")
+
+######################################################Testcase53###############################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# ADB command to turn off the receiver device screen
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Execute the ADB command to turn off the receiver device screen
+subprocess.run(receiver_turn_off_command)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+sender_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name", text="AAAAA").click()
+time.sleep(2)
+sender_device(description="Video call").click()
+time.sleep(30)
+receiver_device(resourceId="android:id/action0", text="ANSWER").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/mute_btn").click()
+time.sleep(2)
+print("the video call is muted")
+
+###################################################Testcase54################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# ADB command to turn off the receiver device screen
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Execute the ADB command to turn off the receiver device screen
+subprocess.run(receiver_turn_off_command)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+sender_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name", text="AAAAA").click()
+time.sleep(2)
+sender_device(description="Video call").click()
+time.sleep(30)
+receiver_device(resourceId="android:id/action0", text="ANSWER").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/back").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/entry").set_text("hello this is shu bham pal singh, automation engineer at LavaR&D")
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversation_entry_action_button").click()
+print("The video call ongoing with messages sent")
+
+#######################################################Testcase55#############################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# ADB command to turn off the receiver device screen
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Execute the ADB command to turn off the receiver device screen
+subprocess.run(receiver_turn_off_command)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+sender_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name", text="AAAAA").click()
+time.sleep(2)
+sender_device(description="Video call").click()
+time.sleep(30)
+receiver_device(resourceId="android:id/action0", text="ANSWER").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/back").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/entry").set_text("hello this is shu bham pal singh, automation engineer at LavaR&D")
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversation_entry_action_button").click()
+print("The video call ongoing with messages sent")
+
+##################################################Testcase56##################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# ADB command to turn off the receiver device screen
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Execute the ADB command to turn off the receiver device screen
+subprocess.run(receiver_turn_off_command)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+sender_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name", text="AAAAA").click()
+time.sleep(2)
+sender_device(description="Video call").click()
+time.sleep(30)
+receiver_device(resourceId="android:id/action0", text="ANSWER").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/back").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/entry").set_text("hello this is shu bham pal singh, automation engineer at LavaR&D")
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversation_entry_action_button").click()
+print("The video call ongoing with messages sent")
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/input_attach_button").click()
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.whatsapp:id/pickfiletype_audio_holder"]/android.widget.ImageButton[1]').click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/audio_file_title", text="file_example_MP3_700KB").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/fab").click()
+time.sleep(2)
+receiver_device(resourceId="android:id/button1").click()
+print("The audio file is sent")
+
+#########################################################Testcase58###########################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# ADB command to turn off the receiver device screen
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Execute the ADB command to turn off the receiver device screen
+subprocess.run(receiver_turn_off_command)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+sender_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name", text="AAAAA").click()
+time.sleep(2)
+sender_device(description="Video call").click()
+time.sleep(30)
+receiver_device(resourceId="android:id/action0", text="ANSWER").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/back").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/entry").set_text("hello this is shu bham pal singh, automation engineer at LavaR&D")
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversation_entry_action_button").click()
+print("The video call ongoing with messages sent")
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/input_attach_button").click()
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.whatsapp:id/pickfiletype_document_holder"]/android.widget.ImageButton[1]').click()
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="android:id/list"]/android.widget.FrameLayout[2]').click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/send").click()
+print("Documents in pdf format sent")
+
+###########################################################Testcase59#########################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# ADB command to turn off the receiver device screen
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Execute the ADB command to turn off the receiver device screen
+subprocess.run(receiver_turn_off_command)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+sender_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name", text="AAAAA").click()
+time.sleep(2)
+sender_device(description="Video call").click()
+time.sleep(30)
+receiver_device(resourceId="android:id/action0", text="ANSWER").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/back").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/entry").set_text("hello this is shu bham pal singh, automation engineer at LavaR&D")
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversation_entry_action_button").click()
+print("The video call properly pickedup")
+
+###################################################Testcase60##################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Create a Device object for the sender device
+sender_device = ui2.Device('cf611ff9')
+
+# Create a Device object for the receiver device
+receiver_device = ui2.Device(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', 'cf611ff9', 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', 'cf611ff9', 'shell', 'input', 'keyevent', '26']
+def scroll_to_element(self, element_name):
+        adb_command = ['adb', '-s', self.serial, 'shell', 'input', 'touchscreen', 'swipe', 'start_x', 'start_y', 'end_x', 'end_y']
+        subprocess.run(adb_command)
+        
+receiver_device.long_click(0.767, 0.895)
+time.sleep(2)
+receiver_device(text="Widgets").click()
+time.sleep(2)
+
+# Scroll down to the WhatsApp widget
+receiver_device(scrollable=True).scroll(steps=10)
+
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.android.launcher3:id/primary_widgets_list_view"]/android.widget.LinearLayout[6]/android.widget.CheckBox[1]').click()
+time.sleep(2)
+# Find the WhatsApp widget by its resource ID (replace with the actual ID)
+widget = receiver_device(resourceId="com.android.launcher3:id/widget_preview_container")
+widget_bounds = widget.info["bounds"]
+
+# Define the target position on the home screen (adjust as needed)
+end_x = 0.441  # X-coordinate on the home screen
+end_y = 0.498  # Y-coordinate on the home screen
+
+# Drag the widget to the target position
+receiver_device.drag(widget_bounds["left"], widget_bounds["top"],
+                     end_x, end_y, duration=0.5)
+
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.whatsapp:id/header"]/android.widget.LinearLayout[1]').click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+receiver_device(description="Video call").click()
+time.sleep(20)
+print("The video call is going while whatsapp is in wiglet state")
+
+####################################################Testcase61###############################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Create a Device object for the sender device
+sender_device = ui2.Device('cf611ff9')
+
+# Create a Device object for the receiver device
+receiver_device = ui2.Device(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', 'cf611ff9', 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', 'cf611ff9', 'shell', 'input', 'keyevent', '26']
+
+receiver_device(resourceId="com.google.android.gm:id/widget_folder").click()
+time.sleep(2)
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+sender_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name", text="AAAAA").click()
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/entry").set_text("hello")
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversation_entry_action_button").click()
+print("messages incoming while video call")
+
+###################################################Testcase62################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Create a Device object for the sender device
+sender_device = ui2.Device('cf611ff9')
+
+# Create a Device object for the receiver device
+receiver_device = ui2.Device(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', 'cf611ff9', 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', 'cf611ff9', 'shell', 'input', 'keyevent', '26']
+def scroll_to_element(self, element_name):
+        adb_command = ['adb', '-s', self.serial, 'shell', 'input', 'touchscreen', 'swipe', 'start_x', 'start_y', 'end_x', 'end_y']
+        subprocess.run(adb_command)
+        
+receiver_device.long_click(0.767, 0.895)
+time.sleep(2)
+receiver_device(text="Widgets").click()
+time.sleep(2)
+
+# Scroll down to the WhatsApp widget
+receiver_device(scrollable=True).scroll(steps=10)
+
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.android.launcher3:id/primary_widgets_list_view"]/android.widget.LinearLayout[6]/android.widget.CheckBox[1]').click()
+time.sleep(2)
+# Find the WhatsApp widget by its resource ID (replace with the actual ID)
+widget = receiver_device(resourceId="com.android.launcher3:id/widget_preview_container")
+widget_bounds = widget.info["bounds"]
+
+# Define the target position on the home screen (adjust as needed)
+end_x = 0.441  # X-coordinate on the home screen
+end_y = 0.498  # Y-coordinate on the home screen
+
+# Drag the widget to the target position
+receiver_device.drag(widget_bounds["left"], widget_bounds["top"],
+                     end_x, end_y, duration=0.5)
+
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.whatsapp:id/header"]/android.widget.LinearLayout[1]').click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+receiver_device(description="Video call").click()
+time.sleep(2)
+print("The video call is going while whatsapp is in wiglet state")
+time.sleep(2)
+sender_device(text="Phone").click()
+time.sleep(2)
+sender_device(resourceId="com.google.android.dialer:id/one").click()
+time.sleep(2)
+sender_device(resourceId="com.google.android.dialer:id/dialpad_fab").click()
+time.sleep(2)
+sender_device(resourceId="com.google.android.dialer:id/eight").click()
+time.sleep(2)
+sender_device(resourceId="com.google.android.dialer:id/four").click()
+time.sleep(2)
+sender_device(resourceId="com.google.android.dialer:id/four").click()
+time.sleep(2)
+sender_device(resourceId="com.google.android.dialer:id/eight").click()
+time.sleep(2)
+sender_device(resourceId="com.google.android.dialer:id/six").click()
+time.sleep(2)
+sender_device(resourceId="com.google.android.dialer:id/nine").click()
+time.sleep(2)
+sender_device(resourceId="com.google.android.dialer:id/seven").click()
+time.sleep(2)
+sender_device(resourceId="com.google.android.dialer:id/four").click()
+time.sleep(2)
+sender_device(resourceId="com.google.android.dialer:id/eight").click()
+time.sleep(2)
+sender_device(resourceId="com.google.android.dialer:id/eight").click()
+time.sleep(2)
+sender_device(resourceId="com.google.android.dialer:id/dialpad_voice_call_button").click()
+print("The with video call get the normal call")
+
+###############################################Testcase63#####################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Create a Device object for the sender device
+sender_device = ui2.Device('cf611ff9')
+
+# Create a Device object for the receiver device
+receiver_device = ui2.Device(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', 'cf611ff9', 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', 'cf611ff9', 'shell', 'input', 'keyevent', '26']
+def scroll_to_element(self, element_name):
+        adb_command = ['adb', '-s', self.serial, 'shell', 'input', 'touchscreen', 'swipe', 'start_x', 'start_y', 'end_x', 'end_y']
+        subprocess.run(adb_command)
+        
+
+# Scroll down to the WhatsApp widget
+receiver_device(scrollable=True).scroll(steps=10)
+
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.android.launcher3:id/primary_widgets_list_view"]/android.widget.LinearLayout[6]/android.widget.CheckBox[1]').click()
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.whatsapp:id/header"]/android.widget.LinearLayout[1]').click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+receiver_device(description="Video call").click()
+time.sleep(2)
+print("The video call is going while whatsapp is in wiglet state")
+
+###################################################Testcase65################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Perform the swipe left gesture
+receiver_device.swipe(start_x, start_y, end_x, end_y, duration=0.5)  # Adjust duration (in seconds) as needed
+
+# Wait for a brief moment to see the result (optional)
+time.sleep(1)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+sender_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+sender_device(description="Video call").click()
+time.sleep(2)
+print("The video call is done")
+
+###################################################Testcase66#################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Perform the swipe left gesture
+receiver_device.swipe(start_x, start_y, end_x, end_y, duration=0.5)  # Adjust duration (in seconds) as needed
+
+# Wait for a brief moment to see the result (optional)
+time.sleep(1)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/tab", text="Calls").click()
+time.sleep(2)
+if receiver_device(text="Shubham").exists():
+    print("the call status is checked")
+
+###################################################Testcase67#################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+from datetime import datetime, timedelta
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Device serial number of the sender device
+sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
+
+# Create a Device object for the sender device
+sender_device = ui2.connect(sender_device_serial)
+
+# Create a Device object for the receiver device
+receiver_device = ui2.connect(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
+
+# Get the screen dimensions
+screen_width, screen_height = receiver_device.window_size()
+
+# Calculate the coordinates for the swipe left gesture
+start_x = screen_width - 50
+start_y = screen_height // 2
+end_x = 50
+end_y = start_y
+
+# Perform the swipe left gesture
+receiver_device.swipe(start_x, start_y, end_x, end_y, duration=0.5)  # Adjust duration (in seconds) as needed
+
+# Wait for a brief moment to see the result (optional)
+time.sleep(1)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/tab", text="Calls").click()
+time.sleep(2)
+if receiver_device(text="Shubham").exists():
+    print("the call status is checked")
+
+#####################################################Testcase79################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Create a Device object for the sender device
+sender_device = ui2.Device('cf611ff9')
+
+# Create a Device object for the receiver device
+receiver_device = ui2.Device(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', 'cf611ff9', 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', 'cf611ff9', 'shell', 'input', 'keyevent', '26']
+
+receiver_device(resourceId="com.google.android.gm:id/widget_folder").click()
+time.sleep(2)
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+sender_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name").click()
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversations_row_contact_name", text="AAAAA").click()
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/entry").set_text("hello")
+time.sleep(2)
+sender_device(resourceId="com.whatsapp:id/conversation_entry_action_button").click()
+time.sleep(2)
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+receiver_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+time.sleep(2)
+receiver_device(text="Shubham").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/message_text").exists():
+    print("The message sent sent is opened")
+    
+############################################Tstcase80##########################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Create a Device object for the sender device
+sender_device = ui2.Device('cf611ff9')
+
+# Create a Device object for the receiver device
+receiver_device = ui2.Device(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', 'cf611ff9', 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', 'cf611ff9', 'shell', 'input', 'keyevent', '26']
+
+# Turn off the receiver device screen
+receiver_device.turn_off_screen()
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+sender_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+
+receiver_device(text="Shubham").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/entry").set_text("hello")
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversation_entry_action_button").click()
+time.sleep(2)
+# Define the package name and activity name of the Gmail app
+package_name = "com.google.android.gm"
+activity_name = "com.google.android.gm.ConversationListActivityGmail"
+
+# ADB command to start the Gmail app
+adb_command = ["adb", "-s", sender_device, "shell", "am", "start", "-n", f"{package_name}/{activity_name}"]
+
+# Execute the ADB command
+subprocess.run(adb_command)
+time.sleep(2)
+receiver_device(resourceId="com.google.android.gm:id/compose_button").click()
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.google.android.gm:id/peoplekit_autocomplete_chip_group"]/android.widget.EditText[1]').set_text("shubhampalsingh385@gmail.com")
+time.sleep(2)
+receiver_device(resourceId="com.google.android.gm:id/peoplekit_listview_contact_method").click()
+time.sleep(2)
+receiver_device(resourceId="com.google.android.gm:id/subject").set_text("welcome mail")
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.google.android.gm:id/wc_body_layout"]/android.webkit.WebView[1]').set_text("hello i am shubham pal singh")
+time.sleep(2)
+receiver_device(resourceId="com.google.android.gm:id/send").click()
+time.sleep(2)
+print("The gmail is sent")
+
+###################################################Testcase81################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Create a Device object for the sender device
+sender_device = ui2.Device('cf611ff9')
+
+# Create a Device object for the receiver device
+receiver_device = ui2.Device(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', 'cf611ff9', 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', 'cf611ff9', 'shell', 'input', 'keyevent', '26']
+
+# Turn off the receiver device screen
+receiver_device.turn_off_screen()
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+
+# Start WhatsApp using the package name and activity name
+sender_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+
+receiver_device(text="Shubham").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/entry").set_text("hello")
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversation_entry_action_button").click()
+time.sleep(2)
+# Define the initial swipe coordinates
+start_x = 500
+start_y = 500
+end_y = 1500
+swipe_duration = 0.5
+
+# Perform multiple swipes to scroll the screen downwards
+num_swipes = 5
+for _ in range(num_swipes):
+    sender_device.swipe(start_x, start_y, start_x, end_y, duration=swipe_duration)
+    time.sleep(1)
+
+# Click on the Bluetooth tile in the system UI
+sender_device(resourceId="com.android.systemui:id/tile_label", text="Bluetooth").click()
+time.sleep(2)
+
+# Long-click on the Bluetooth tile
+sender_device(resourceId="com.android.systemui:id/tile_label", text="Bluetooth").long_click()
+time.sleep(2)
+
+# Click on the "Pair new device" option
+sender_device(resourceId="android:id/title", text="Pair new device").click()
+
+# Check for the presence of a specific device ("OnePlus 9 Pro 5G") and initiate the pairing process
+num_swipes = 100
+for _ in range(num_swipes):
+    if sender_device(resourceId="android:id/title", text="OnePlus 9 Pro 5G").exists():
+        sender_device(resourceId="android:id/title", text="OnePlus 9 Pro 5G").click()
+        time.sleep(1)
+        sender_deviced(resourceId="android:id/button2").click()
+        print("Bluetooth not paired")
+        break
+    else:
+        print("Bluetooth paired")
+
+################################################Testcase82################################################################
+# Import necessary modules
+import uiautomator2 as ui2
+import time
+import subprocess
+
+# Device serial number of the receiver device
+receiver_device_serial = "192.168.2.39:5555"
+
+# Create a Device object for the sender device
+sender_device = ui2.Device('cf611ff9')
+
+# Create a Device object for the receiver device
+receiver_device = ui2.Device(receiver_device_serial)
+
+# ADB commands to turn on the receiver and sender devices' screens
+receiver_turn_on_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '224']
+sender_turn_on_command = ['adb', '-s', 'cf611ff9', 'shell', 'input', 'keyevent', '224']
+
+# ADB commands to turn off the receiver and sender devices' screens
+receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
+sender_turn_off_command = ['adb', '-s', 'cf611ff9', 'shell', 'input', 'keyevent', '26']
+
+# Package name and activity name of WhatsApp
+whatsapp_package_name = "com.whatsapp"
+whatsapp_activity_name = "com.whatsapp.Main"
+
+# Start WhatsApp using the package name and activity name
+sender_device.app_start(whatsapp_package_name, whatsapp_activity_name)
+
+receiver_device(text="Shubham").click()
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/entry").set_text("hello")
+time.sleep(2)
+receiver_device(resourceId="com.whatsapp:id/conversation_entry_action_button").click()
+time.sleep(2)
+# Define the initial swipe coordinates
+start_x = 500
+start_y = 500
+end_y = 1500
+swipe_duration = 0.5
+
+# Perform multiple swipes to scroll the screen downwards
+num_swipes = 5
+for _ in range(num_swipes):
+    sender_device.swipe(start_x, start_y, start_x, end_y, duration=swipe_duration)
+    time.sleep(1)
+
+# Click on the Bluetooth tile in the system UI
+sender_device(resourceId="com.android.systemui:id/tile_label", text="Bluetooth").click()
+time.sleep(2)
+
+# Long-click on the Bluetooth tile
+sender_device(resourceId="com.android.systemui:id/tile_label", text="Bluetooth").long_click()
+time.sleep(2)
+
+# Click on the "Pair new device" option
+sender_device(resourceId="android:id/title", text="Pair new device").click()
+
+# Check for the presence of a specific device ("OnePlus 9 Pro 5G") and initiate the pairing process
+num_swipes = 100
+for _ in range(num_swipes):
+    if sender_device(resourceId="android:id/title", text="OnePlus 9 Pro 5G").exists():
+        sender_device(resourceId="android:id/title", text="OnePlus 9 Pro 5G").click()
+        time.sleep(1)
+        sender_deviced(resourceId="android:id/button2").click()
+        print("Bluetooth not paired")
+        break
+    else:
+        print("Bluetooth paired")
+        
+# Package name and activity name of WhatsApp
+Files_package_name = "com.android.launcher3"
+Files_activity_name = "com.android.searchlauncher.SearchLauncher"
+
+# Start Files using the package name and activity name
+receiver_device.app_start(Files_package_name, Files_activity_name)_device.app_start(Files_package_name, Files_activity_name)
+time.sleep(2)
+receiver_device.xpath('//*[@resource-id="com.google.android.apps.nbu.files:id/image_category_item_view"]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.LinearLayout[1]').click()
+time.sleep(2)
+receiver.xpath('//*[@resource-id="com.google.android.apps.nbu.files:id/file_list"]/android.widget.RelativeLayout[1]').long_click()
+time.sleep(2)
+receiver_device(resourceId="com.google.android.apps.nbu.files:id/share_action").click()
+time.sleep(2)
+receiver_device(scrollable=True).scroll.to(text="Bluetooth").click()
+time.sleep(2)
+receiver_device(resourceId="android:id/title", text="OnePlus 9 Pro 5G").click()
+time.sleep(90)
+print("Transfer through bluetooth is done")
