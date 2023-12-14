@@ -1,4 +1,4 @@
-##############################################Whatsapp test cases##############################################################
+##############################################Whatsapp test case 1##############################################################
 # Import necessary modules
 import uiautomator2 as ui2
 import time
@@ -25,14 +25,21 @@ sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', '
 receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
 sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
 
-receiver_device(text="Play Store").click()
-time.sleep(2)
-receiver_device(text="Search Apps & Games").set_text("whatsapp")
-time.sleep(2)
-receiver_device.xpath('//androidx.compose.ui.platform.ComposeView/android.view.View[1]/android.view.View[1]/android.view.View[2]/android.view.View[1]/android.view.View[2]').click()
-time.sleep(2)
-receiver_device(description="Install").click()
+# Package name and activity name for the Google Play Store
+playstore_package = "com.android.vending"
+playstore_activity = "com.android.vending.AssetBrowserActivity"
 
+# Start the Google Play Store
+device.app_start(playstore_package, playstore_activity)
+
+time.sleep(2)
+receiver_device.xpath('//androidx.compose.ui.platform.ComposeView/android.view.View[1]/android.view.View[2]').set_text("Whatsapp")
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/back").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/back").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/center_group").click()
 
 # Define the package name and activity name of WhatsApp
 package_name = "com.whatsapp"
@@ -43,24 +50,19 @@ whatsapp_adb_command = ["adb", "-s", receiver_device_serial, "shell", "am", "sta
 
 # Execute the ADB command to start WhatsApp
 subprocess.run(whatsapp_adb_command)
-
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/center_group").click()
 #########################################Testcase3#############################################################################
-# Import necessary modules
 import uiautomator2 as ui2
 import time
 import subprocess
-from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
+# Device serial numbers
 receiver_device_serial = "192.168.2.39:5555"
+sender_device_serial = 'cf611ff9'
 
-# Device serial number of the sender device
-sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
-
-# Create a Device object for the sender device
+# Connect to devices
 sender_device = ui2.connect(sender_device_serial)
-
-# Create a Device object for the receiver device
 receiver_device = ui2.connect(receiver_device_serial)
 
 # ADB commands to turn on the receiver and sender devices' screens
@@ -71,32 +73,38 @@ sender_turn_on_command = ['adb', '-s', sender_device_serial, 'shell', 'input', '
 receiver_turn_off_command = ['adb', '-s', receiver_device_serial, 'shell', 'input', 'keyevent', '26']
 sender_turn_off_command = ['adb', '-s', sender_device_serial, 'shell', 'input', 'keyevent', '26']
 
-# ADB command to start the Settings app and scroll to the "Privacy" section
-!adb shell am start -n com.android.settings/.Settings
+# ADB command to start WhatsApp
+whatsapp_adb_command = ["adb", "-s", receiver_device_serial, "shell", "am", "start", "-n", "com.whatsapp/com.whatsapp.HomeActivity"]
 
+# Execute the ADB command to turn on the receiver's screen
+subprocess.run(receiver_turn_on_command)
 
-# Execute the ADB command from Python
-subprocess.run(adb_command, shell=True)
+# Wait for a moment to ensure the screen is turned on
+time.sleep(2)
+
+# Execute the ADB command to start the Settings app
+subprocess.run(["adb", "-s", receiver_device_serial, "shell", "am", "start", "-n", "com.android.settings/.Settings"])
 
 # Scroll directly to the "Apps" section in the Settings app
 receiver_device(scrollable=True).scroll.to(text="Apps")
 time.sleep(2)
-receiver_device(resourceId="android:id/title", text="Apps").click()
+receiver_device(text="Apps").click()
 time.sleep(2)
-receiver_device(resourceId="android:id/title", text="WhatsApp").click()
+receiver_device(text="WhatsApp").click()
+
+# Wait for a moment to ensure WhatsApp is opened
+time.sleep(5)
+receiver_device(resourceId="com.android.systemui:id/back").click()
 time.sleep(2)
-receiver_device(resourceId="com.android.settings:id/button2").click()
+receiver_device(resourceId="com.android.systemui:id/back").click()
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/back").click()
 time.sleep(2)
 receiver_device.press("home")
-# Define the package name and activity name of WhatsApp
-package_name = "com.whatsapp"
-activity_name = "com.whatsapp.HomeActivity"
-
-# ADB command to start WhatsApp
-whatsapp_adb_command = ["adb", "-s", receiver_device_serial, "shell", "am", "start", "-n", f"{package_name}/{activity_name}"]
-
-# Execute the ADB command to start WhatsApp
+# Open WhatsApp
 subprocess.run(whatsapp_adb_command)
+time.sleep(2)
+receiver_device(resourceId="com.android.systemui:id/back").click()
 
 ####################################################Testcase4################################################################
 # Import necessary modules
@@ -104,9 +112,6 @@ import uiautomator2 as ui2
 import time
 import subprocess
 from datetime import datetime, timedelta
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
@@ -139,9 +144,6 @@ import uiautomator2 as ui2
 import time
 import subprocess
 from datetime import datetime, timedelta
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
@@ -206,9 +208,6 @@ import time
 import subprocess
 from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
 
@@ -271,9 +270,6 @@ import time
 import subprocess
 from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
 
@@ -320,9 +316,6 @@ import uiautomator2 as ui2
 import time
 import subprocess
 from datetime import datetime, timedelta
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
@@ -379,9 +372,6 @@ import time
 import subprocess
 from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
 
@@ -435,9 +425,6 @@ import uiautomator2 as ui2
 import time
 import subprocess
 from datetime import datetime, timedelta
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
@@ -496,9 +483,6 @@ import time
 import subprocess
 from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
 
@@ -552,9 +536,6 @@ import uiautomator2 as ui2
 import time
 import subprocess
 from datetime import datetime, timedelta
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
@@ -617,9 +598,6 @@ import uiautomator2 as ui2
 import time
 import subprocess
 from datetime import datetime, timedelta
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
@@ -691,8 +669,6 @@ import time
 import subprocess
 from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
@@ -749,9 +725,6 @@ import time
 import subprocess
 from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
 
@@ -805,9 +778,6 @@ import time
 import subprocess
 from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
 
@@ -853,9 +823,6 @@ import uiautomator2 as ui2
 import time
 import subprocess
 from datetime import datetime, timedelta
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
@@ -922,9 +889,6 @@ import time
 import subprocess
 from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
 
@@ -983,9 +947,6 @@ import time
 import subprocess
 from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
 
@@ -1041,9 +1002,6 @@ import uiautomator2 as ui2
 import time
 import subprocess
 from datetime import datetime, timedelta
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
@@ -1104,9 +1062,6 @@ import time
 import subprocess
 from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
 
@@ -1152,9 +1107,6 @@ import uiautomator2 as ui2
 import time
 import subprocess
 from datetime import datetime, timedelta
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
@@ -1212,9 +1164,6 @@ import time
 import subprocess
 from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
 
@@ -1264,9 +1213,6 @@ import uiautomator2 as ui2
 import time
 import subprocess
 from datetime import datetime, timedelta
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
@@ -1321,9 +1267,6 @@ import time
 import subprocess
 from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
 
@@ -1376,9 +1319,6 @@ import uiautomator2 as ui2
 import time
 import subprocess
 from datetime import datetime, timedelta
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
@@ -1444,9 +1384,6 @@ import time
 import subprocess
 from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
 
@@ -1509,9 +1446,6 @@ import time
 import subprocess
 from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
 
@@ -1563,9 +1497,6 @@ print("The video call properly pickedup")
 import uiautomator2 as ui2
 import time
 import subprocess
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Create a Device object for the sender device
 sender_device = ui2.Device('cf611ff9')
@@ -1622,9 +1553,6 @@ import uiautomator2 as ui2
 import time
 import subprocess
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Create a Device object for the sender device
 sender_device = ui2.Device('cf611ff9')
 
@@ -1663,9 +1591,6 @@ print("messages incoming while video call")
 import uiautomator2 as ui2
 import time
 import subprocess
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Create a Device object for the sender device
 sender_device = ui2.Device('cf611ff9')
@@ -1751,9 +1676,6 @@ import uiautomator2 as ui2
 import time
 import subprocess
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Create a Device object for the sender device
 sender_device = ui2.Device('cf611ff9')
 
@@ -1792,9 +1714,6 @@ import uiautomator2 as ui2
 import time
 import subprocess
 from datetime import datetime, timedelta
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
@@ -1857,9 +1776,6 @@ import time
 import subprocess
 from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
 
@@ -1920,9 +1836,6 @@ import time
 import subprocess
 from datetime import datetime, timedelta
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Device serial number of the sender device
 sender_device_serial = 'cf611ff9'  # Use the actual sender device serial number as a string
 
@@ -1982,9 +1895,6 @@ import uiautomator2 as ui2
 import time
 import subprocess
 
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
-
 # Create a Device object for the sender device
 sender_device = ui2.Device('cf611ff9')
 
@@ -2035,9 +1945,6 @@ receiver_device(resourceId="com.whatsapp:id/message_text").exists():
 import uiautomator2 as ui2
 import time
 import subprocess
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Create a Device object for the sender device
 sender_device = ui2.Device('cf611ff9')
@@ -2099,9 +2006,6 @@ print("The gmail is sent")
 import uiautomator2 as ui2
 import time
 import subprocess
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Create a Device object for the sender device
 sender_device = ui2.Device('cf611ff9')
@@ -2174,9 +2078,6 @@ for _ in range(num_swipes):
 import uiautomator2 as ui2
 import time
 import subprocess
-
-# Device serial number of the receiver device
-receiver_device_serial = "192.168.2.39:5555"
 
 # Create a Device object for the sender device
 sender_device = ui2.Device('cf611ff9')
